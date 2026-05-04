@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowUp Beauty | مستحضرات تجميل فاخرة</title>
+    <meta name="description" content="اكتشفي سر جمالك الحقيقي مع GlowUp Beauty - مستحضرات تجميل طبيعية 100% بأسعار لا تُقاوَم">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --rose: #c9547a;
+            --rose-light: #f0a0bc;
+            --rose-dark: #8b2d4f;
+            --gold: #d4a942;
+            --dark: #1a0a0f;
+            --cream: #fdf6f0;
+            --white: #ffffff;
+            --font: 'Cairo', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font); background: var(--cream); color: var(--dark); overflow-x: hidden; direction: rtl; }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(253,246,240,0.95); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(201,84,122,0.15);
+            padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-brand .brand-icon { font-size: 1.5rem; color: var(--rose); }
+        .nav-brand h1 { font-size: 1.3rem; font-weight: 900; color: var(--dark); }
+        .nav-brand h1 span { color: var(--rose); }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+            color: white; padding: 0.6rem 1.5rem; border-radius: 50px;
+            font-weight: 700; font-size: 0.9rem; border: none; cursor: pointer;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201,84,122,0.4); }
+        .back-link {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: var(--rose); font-weight: 600; font-size: 0.9rem; text-decoration: none;
+            transition: gap 0.3s;
+        }
+        .back-link:hover { gap: 0.8rem; }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh; padding-top: 80px;
+            background: linear-gradient(135deg, #fdf6f0 0%, #fce8f0 50%, #f5d0e0 100%);
+            display: flex; align-items: center; position: relative; overflow: hidden;
+        }
+        .hero-deco { position: absolute; border-radius: 50%; opacity: 0.07; }
+        .deco-1 { width: 500px; height: 500px; background: var(--rose); top: -150px; left: -150px; }
+        .deco-2 { width: 300px; height: 300px; background: var(--gold); bottom: -80px; right: 100px; }
+        .hero-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 2; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(201,84,122,0.12); border: 1px solid rgba(201,84,122,0.25);
+            color: var(--rose); padding: 0.4rem 1rem; border-radius: 50px;
+            font-size: 0.82rem; font-weight: 700; margin-bottom: 1.2rem;
+        }
+        .hero-badge .dot { width: 7px; height: 7px; background: var(--rose); border-radius: 50%; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        .hero-title { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.25; margin-bottom: 1.2rem; color: var(--dark); }
+        .hero-title .highlight { color: var(--rose); position: relative; }
+        .hero-title .highlight::after { content:''; position:absolute; bottom:-4px; right:0; left:0; height:3px; background: linear-gradient(90deg, var(--rose), var(--gold)); border-radius:2px; }
+        .hero-subtitle { font-size: 1.05rem; color: #6b4c5a; line-height: 1.8; margin-bottom: 2rem; }
+        .hero-stars { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .stars { color: var(--gold); font-size: 1rem; }
+        .hero-stars span { font-size: 0.88rem; color: #6b4c5a; font-weight: 600; }
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .btn-main {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+            color: white; padding: 1rem 2.2rem; border-radius: 50px;
+            font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(201,84,122,0.4);
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(201,84,122,0.5); }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            border: 2px solid var(--rose); color: var(--rose);
+            padding: 0.9rem 1.8rem; border-radius: 50px;
+            font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s;
+        }
+        .btn-outline:hover { background: var(--rose); color: white; }
+        .hero-trust { display: flex; gap: 2rem; }
+        .trust-item { display: flex; flex-direction: column; align-items: center; }
+        .trust-num { font-size: 1.4rem; font-weight: 900; color: var(--rose); }
+        .trust-label { font-size: 0.75rem; color: #9b7a85; }
+
+        /* Product Visual */
+        .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+        .product-showcase {
+            width: 380px; height: 420px;
+            background: linear-gradient(135deg, white, #fce8f0);
+            border-radius: 40px; box-shadow: 0 30px 80px rgba(201,84,122,0.25);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .product-showcase::before {
+            content: ''; position: absolute; top: 0; right: 0;
+            width: 150px; height: 150px;
+            background: linear-gradient(135deg, rgba(201,84,122,0.15), transparent);
+            border-radius: 0 40px 0 100%;
+        }
+        .product-emoji { font-size: 8rem; margin-bottom: 1rem; filter: drop-shadow(0 10px 20px rgba(201,84,122,0.3)); }
+        .product-name { font-size: 1.2rem; font-weight: 900; color: var(--rose-dark); }
+        .product-price { font-size: 0.9rem; color: #9b7a85; margin-top: 0.3rem; }
+        .price-tag {
+            position: absolute; top: 25px; left: 25px;
+            background: linear-gradient(135deg, var(--gold), #b8860b);
+            color: white; padding: 0.5rem 1rem; border-radius: 50px;
+            font-weight: 900; font-size: 0.85rem;
+        }
+        .badge-new {
+            position: absolute; bottom: 25px; right: 25px;
+            background: var(--rose); color: white;
+            padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+        }
+        .float-card {
+            position: absolute; background: white; border-radius: 14px;
+            padding: 0.8rem 1.2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            display: flex; align-items: center; gap: 0.7rem;
+            animation: float-anim 3s ease-in-out infinite;
+        }
+        @keyframes float-anim { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+        .fc-top { top: -15px; right: -20px; animation-delay: 0s; }
+        .fc-bottom { bottom: -15px; left: -20px; animation-delay: 1.5s; }
+        .float-card i { font-size: 1.3rem; }
+        .float-card .fc-text strong { display: block; font-size: 0.85rem; color: var(--dark); }
+        .float-card .fc-text span { font-size: 0.72rem; color: #9b7a85; }
+
+        /* ===== PRODUCTS SECTION ===== */
+        #products { padding: 100px 0; background: white; }
+        .section-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-tag {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(201,84,122,0.08); border: 1px solid rgba(201,84,122,0.2);
+            color: var(--rose); padding: 0.35rem 1rem; border-radius: 50px; font-size: 0.82rem; font-weight: 700; margin-bottom: 0.8rem;
+        }
+        .section-title { font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 900; color: var(--dark); margin-bottom: 0.8rem; }
+        .section-sub { color: #7a5a68; font-size: 1rem; max-width: 550px; margin: 0 auto; line-height: 1.7; }
+        .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .product-card {
+            background: var(--cream); border-radius: 20px; overflow: hidden;
+            transition: all 0.35s; border: 1px solid rgba(201,84,122,0.08);
+            position: relative;
+        }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(201,84,122,0.18); }
+        .product-img {
+            height: 220px; display: flex; align-items: center; justify-content: center;
+            font-size: 5.5rem; position: relative;
+        }
+        .product-img.pink { background: linear-gradient(135deg, #fce8f0, #f5c8d8); }
+        .product-img.purple { background: linear-gradient(135deg, #ede8fc, #d8c8f5); }
+        .product-img.gold { background: linear-gradient(135deg, #fdf5e0, #f5e5b0); }
+        .discount-badge {
+            position: absolute; top: 12px; left: 12px;
+            background: #e53e3e; color: white; font-size: 0.72rem; font-weight: 800;
+            padding: 0.25rem 0.6rem; border-radius: 50px;
+        }
+        .product-body { padding: 1.2rem; }
+        .product-cat { font-size: 0.75rem; color: var(--rose); font-weight: 700; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 1px; }
+        .product-title { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; }
+        .product-desc { font-size: 0.84rem; color: #7a5a68; line-height: 1.6; margin-bottom: 1rem; }
+        .product-rating { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.8rem; }
+        .product-rating .stars { font-size: 0.8rem; }
+        .product-rating span { font-size: 0.78rem; color: #9b7a85; }
+        .product-footer { display: flex; align-items: center; justify-content: space-between; }
+        .product-price-wrap .old-price { font-size: 0.78rem; color: #bbb; text-decoration: line-through; }
+        .product-price-wrap .new-price { font-size: 1.2rem; font-weight: 900; color: var(--rose); }
+        .add-btn {
+            width: 40px; height: 40px; background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+            border: none; border-radius: 50%; color: white; font-size: 1rem;
+            cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center;
+        }
+        .add-btn:hover { transform: scale(1.15); box-shadow: 0 6px 15px rgba(201,84,122,0.4); }
+
+        /* ===== FEATURES ===== */
+        #features { padding: 90px 0; background: linear-gradient(135deg, #fdf6f0, #fce8f0); }
+        .features-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
+        .feature-card {
+            background: white; border-radius: 18px; padding: 1.8rem;
+            text-align: center; border: 1px solid rgba(201,84,122,0.1); transition: all 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(201,84,122,0.15); }
+        .feature-icon {
+            width: 60px; height: 60px; border-radius: 15px; margin: 0 auto 1rem;
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+        }
+        .feature-icon.rose { background: rgba(201,84,122,0.1); color: var(--rose); }
+        .feature-icon.green { background: rgba(34,197,94,0.1); color: #16a34a; }
+        .feature-icon.gold { background: rgba(212,169,66,0.1); color: var(--gold); }
+        .feature-icon.blue { background: rgba(59,130,246,0.1); color: #3b82f6; }
+        .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); }
+        .feature-card p { font-size: 0.84rem; color: #7a5a68; line-height: 1.6; }
+
+        /* ===== TESTIMONIALS ===== */
+        #testimonials { padding: 90px 0; background: white; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+        .review-card {
+            background: var(--cream); border-radius: 18px; padding: 1.8rem;
+            border: 1px solid rgba(201,84,122,0.08); transition: all 0.3s;
+        }
+        .review-card:hover { box-shadow: 0 12px 30px rgba(201,84,122,0.12); }
+        .review-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .reviewer-avatar {
+            width: 46px; height: 46px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.1rem; font-weight: 700; flex-shrink: 0;
+        }
+        .reviewer-name { font-weight: 700; font-size: 0.95rem; color: var(--dark); }
+        .review-date { font-size: 0.75rem; color: #9b7a85; }
+        .review-text { font-size: 0.9rem; color: #5a3d4a; line-height: 1.7; font-style: italic; }
+        .review-text::before { content: '"'; font-size: 2rem; color: var(--rose); opacity: 0.3; line-height: 0; vertical-align: -0.6rem; margin-left: 0.2rem; }
+
+        /* ===== CTA SECTION ===== */
+        #cta-section {
+            padding: 90px 0;
+            background: linear-gradient(135deg, var(--rose-dark), var(--rose));
+            text-align: center; position: relative; overflow: hidden;
+        }
+        #cta-section::before {
+            content: '✨'; font-size: 15rem; position: absolute;
+            top: 50%; left: 50%; transform: translate(-50%,-50%);
+            opacity: 0.05; pointer-events: none;
+        }
+        #cta-section h2 { font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 900; color: white; margin-bottom: 1rem; }
+        #cta-section p { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-white {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: white; color: var(--rose); padding: 1rem 2rem;
+            border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            border: 2px solid rgba(255,255,255,0.6); color: white;
+            padding: 0.9rem 2rem; border-radius: 50px;
+            font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.15); border-color: white; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark); color: rgba(255,255,255,0.6);
+            padding: 2rem; text-align: center; font-size: 0.85rem;
+        }
+        footer strong { color: var(--rose); }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:900px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-trust { justify-content: center; }
+            .hero-btns { justify-content: center; }
+            .hero-visual { display: none; }
+            .products-grid { grid-template-columns: repeat(2,1fr); }
+            .features-grid { grid-template-columns: repeat(2,1fr); }
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+        @media(max-width:600px) {
+            .products-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="../index.html#portfolio" class="back-link">
+            <i class="fas fa-arrow-right"></i> العودة للمحفظة
+        </a>
+        <div class="nav-brand">
+            <span class="brand-icon">✨</span>
+            <h1>Glow<span>Up</span> Beauty</h1>
+        </div>
+        <a href="#cta-section" class="nav-cta"><i class="fas fa-shopping-bag"></i> تسوّقي الآن</a>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-deco deco-1"></div>
+        <div class="hero-deco deco-2"></div>
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <div class="dot"></div> جديد | مستحضرات طبيعية 100%
+                </div>
+                <h1 class="hero-title">
+                    اكتشفي سر<br>
+                    جمالك <span class="highlight">الحقيقي</span><br>
+                    مع GlowUp
+                </h1>
+                <p class="hero-subtitle">
+                    مستحضرات تجميل فاخرة مصنوعة من أجود المكونات الطبيعية. جمالك يستحق الأفضل — بدون مواد كيميائية ضارة وبنتائج تراها من أول استخدام!
+                </p>
+                <div class="hero-stars">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <span>+4,800 عميلة سعيدة | تقييم 4.9/5</span>
+                </div>
+                <div class="hero-btns">
+                    <a href="#products" class="btn-main"><i class="fas fa-sparkles"></i> اكتشفي المنتجات</a>
+                    <a href="#features" class="btn-outline"><i class="fas fa-leaf"></i> لماذا GlowUp؟</a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <span class="trust-num">4.9★</span>
+                        <span class="trust-label">التقييم العام</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-num">+12K</span>
+                        <span class="trust-label">منتج مُباع</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-num">100%</span>
+                        <span class="trust-label">طبيعي</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="product-showcase" style="overflow:hidden">
+                    <img src="../images/products/lipstick.jpg" alt="Rose Glow Collection" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                    <div class="price-tag" style="position:absolute;top:25px;left:25px;z-index:2">🔥 خصم 30%</div>
+                    <div class="badge-new" style="position:absolute;bottom:25px;right:25px;z-index:2">✨ جديد</div>
+                </div>
+                <div class="float-card fc-top">
+                    <i class="fas fa-truck" style="color:#16a34a"></i>
+                    <div class="fc-text">
+                        <strong>شحن مجاني</strong>
+                        <span>لجميع الطلبات +2.500 دج</span>
+                    </div>
+                </div>
+                <div class="float-card fc-bottom">
+                    <i class="fas fa-shield-alt" style="color:#3b82f6"></i>
+                    <div class="fc-text">
+                        <strong>ضمان الجودة</strong>
+                        <span>استرجاع مجاني 30 يوم</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-tag"><i class="fas fa-heart"></i> منتجاتنا المميزة</div>
+                <h2 class="section-title">أفضل منتجاتنا لهذا الموسم</h2>
+                <p class="section-sub">تشكيلة مختارة بعناية من أجود مستحضرات التجميل الطبيعية</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img pink" style="height:240px;overflow:hidden;display:block">
+                        <span class="discount-badge">-35%</span>
+                        <img src="../images/products/lipstick.jpg" alt="Rose Velvet Lipstick" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-cat">أحمر شفاه</div>
+                        <h3 class="product-title">Rose Velvet Lipstick</h3>
+                        <p class="product-desc">أحمر شفاه مخملي يدوم 24 ساعة بألوان جريئة وجذابة</p>
+                        <div class="product-rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span>(328 تقييم)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price-wrap">
+                                <div class="old-price">3.100 دج</div>
+                                <div class="new-price">1.990 دج</div>
+                            </div>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img purple" style="height:240px;overflow:hidden;display:block">
+                        <span class="discount-badge">-25%</span>
+                        <img src="../images/products/serum.jpg" alt="Glow Serum Pro" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-cat">عناية بالبشرة</div>
+                        <h3 class="product-title">Glow Serum Pro</h3>
+                        <p class="product-desc">سيروم نهاري متطور يرطب ويشرق البشرة من الداخل</p>
+                        <div class="product-rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span>(542 تقييم)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price-wrap">
+                                <div class="old-price">5.300 دج</div>
+                                <div class="new-price">3.990 دج</div>
+                            </div>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img gold" style="height:240px;overflow:hidden;display:block">
+                        <span class="discount-badge">-40%</span>
+                        <img src="../images/products/eyeshadow.jpg" alt="Gold Eye Palette" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-cat">ميك أب</div>
+                        <h3 class="product-title">Gold Eye Palette</h3>
+                        <p class="product-desc">باليت عيون ذهبي فاخر بـ 18 لون مميز لإطلالة ساحرة</p>
+                        <div class="product-rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span>(215 تقييم)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price-wrap">
+                                <div class="old-price">6.700 دج</div>
+                                <div class="new-price">3.990 دج</div>
+                            </div>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-tag"><i class="fas fa-leaf"></i> لماذا نحن؟</div>
+                <h2 class="section-title">ما يميز GlowUp عن الجميع</h2>
+                <p class="section-sub">نؤمن بأن الجمال الحقيقي يبدأ من الداخل ولا يحتاج إلى مواد ضارة</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon green"><i class="fas fa-leaf"></i></div>
+                    <h3>100% طبيعي</h3>
+                    <p>مكونات طبيعية نقية بدون أي مواد كيميائية ضارة أو إضافات صناعية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon rose"><i class="fas fa-flask"></i></div>
+                    <h3>مختبر علمياً</h3>
+                    <p>كل منتج يمر بفحوصات دقيقة في مختبرات معتمدة لضمان السلامة والفعالية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon gold"><i class="fas fa-award"></i></div>
+                    <h3>معتمد دولياً</h3>
+                    <p>حاصلون على شهادات جودة دولية وموافقة هيئات التجميل المعتمدة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon blue"><i class="fas fa-shipping-fast"></i></div>
+                    <h3>توصيل سريع</h3>
+                    <p>شحن مجاني للطلبات فوق 2.500 دج مع ضمان الوصول خلال 48-72 ساعة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-tag"><i class="fas fa-heart"></i> آراء العميلات</div>
+                <h2 class="section-title">ماذا قالت عميلاتنا؟</h2>
+                <p class="section-sub">تجارب حقيقية من عميلات يثقن في GlowUp Beauty</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">ن</div>
+                        <div>
+                            <div class="reviewer-name">نورة العمري</div>
+                            <div class="stars" style="font-size:0.8rem">⭐⭐⭐⭐⭐</div>
+                            <div class="review-date">قبل 3 أيام</div>
+                        </div>
+                    </div>
+                    <p class="review-text">منتجات رائعة جداً! الـ Serum غيّر بشرتي تماماً في أسبوعين فقط. أنصح به لكل بنت تريد بشرة مضيئة وصحية.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">س</div>
+                        <div>
+                            <div class="reviewer-name">سارة بلقاسم</div>
+                            <div class="stars" style="font-size:0.8rem">⭐⭐⭐⭐⭐</div>
+                            <div class="review-date">قبل أسبوع</div>
+                        </div>
+                    </div>
+                    <p class="review-text">أحمر الشفاه Rose Velvet تحفة! يدوم طول اليوم ما يتأثرش بالأكل. اللون جميل جداً والتغليف فاخر.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">ر</div>
+                        <div>
+                            <div class="reviewer-name">ريم الحسناوي</div>
+                            <div class="stars" style="font-size:0.8rem">⭐⭐⭐⭐⭐</div>
+                            <div class="review-date">قبل أسبوعين</div>
+                        </div>
+                    </div>
+                    <p class="review-text">باليت العيون الذهبي يستاهل كل دينار! الألوان pigmented جداً والمظهر النهائي مذهل. شكراً GlowUp!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta-section">
+        <div class="section-container">
+            <h2>✨ العرض ينتهي قريباً!</h2>
+            <p>لا تفوتي خصم 30% على جميع المنتجات. طلبي الآن واحصلي على شحن مجاني + هدية مفاجأة مع كل طلب فوق 4.000 دج</p>
+            <div class="cta-btns">
+                <a href="https://wa.me/213697608838?text=أريد%20الطلب%20من%20GlowUp%20Beauty" target="_blank" class="btn-white">
+                    <i class="fab fa-whatsapp"></i> اطلبي عبر واتساب
+                </a>
+                <a href="#products" class="btn-ghost">
+                    <i class="fas fa-eye"></i> شاهدي المنتجات
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>صُممت هذه الصفحة بواسطة <strong>Digital Boost</strong> | وكالة التسويق الرقمي</p>
+        <p style="margin-top:0.5rem; font-size:0.78rem; opacity:0.6">© 2025 GlowUp Beauty. جميع الحقوق محفوظة</p>
+    </footer>
+
+    <a href="https://wa.me/213697608838?text=أريد%20الطلب%20من%20GlowUp%20Beauty" target="_blank"
+       style="position:fixed;bottom:1.5rem;left:1.5rem;width:55px;height:55px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,0.5);z-index:999;animation:pulse 2s infinite">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <style>@keyframes pulse{0%,100%{box-shadow:0 6px 20px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 30px rgba(37,211,102,0.8),0 0 0 8px rgba(37,211,102,0.1)}}</style>
+</body>
+</html>

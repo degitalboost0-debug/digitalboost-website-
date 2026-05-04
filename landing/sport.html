@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProFit Sport | ملابس رياضية احترافية</title>
+    <meta name="description" content="ProFit Sport - ملابس رياضية احترافية للأداء العالي. ارتدِ الأفضل وحقق الأفضل!">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a0a0a;
+            --accent: #00d4aa;
+            --accent2: #ff4444;
+            --gray: #f5f5f5;
+            --mid: #888;
+            --font: 'Cairo', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font); background: #0a0a0a; color: white; overflow-x: hidden; direction: rtl; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(10,10,10,0.95); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,212,170,0.15);
+            padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo { font-size: 1.3rem; font-weight: 900; color: white; }
+        .nav-logo span { color: var(--accent); }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--accent), #00a882);
+            color: #0a0a0a; padding: 0.6rem 1.5rem; border-radius: 8px;
+            font-weight: 800; font-size: 0.9rem; text-decoration: none; transition: all 0.3s;
+        }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,212,170,0.4); }
+        .back-link {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: var(--accent); font-weight: 600; font-size: 0.9rem; text-decoration: none;
+        }
+        .back-link:hover { gap: 0.8rem; }
+
+        /* HERO */
+        #hero {
+            min-height: 100vh; padding-top: 80px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #0f1f1a 50%, #0a1510 100%);
+            display: flex; align-items: center; position: relative; overflow: hidden;
+        }
+        .hero-grid { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 2; }
+        .hero-line { width: 60px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.5rem; }
+        .hero-tag { color: var(--accent); font-size: 0.82rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .hero-title { font-size: clamp(2.2rem,5vw,4rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-title .neon { color: var(--accent); text-shadow: 0 0 30px rgba(0,212,170,0.5); }
+        .hero-title .red { color: var(--accent2); }
+        .hero-desc { color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; max-width: 480px; }
+        .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+        .btn-neon {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: var(--accent); color: #0a0a0a; padding: 1rem 2.2rem;
+            border-radius: 8px; font-weight: 800; font-size: 1rem; text-decoration: none;
+            transition: all 0.3s; box-shadow: 0 0 20px rgba(0,212,170,0.3);
+        }
+        .btn-neon:hover { transform: translateY(-3px); box-shadow: 0 0 40px rgba(0,212,170,0.5); }
+        .btn-border {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            border: 2px solid rgba(255,255,255,0.2); color: white;
+            padding: 0.9rem 1.8rem; border-radius: 8px;
+            font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s;
+        }
+        .btn-border:hover { border-color: var(--accent); color: var(--accent); }
+        .hero-stats { display: flex; gap: 2.5rem; }
+        .stat { border-right: 2px solid rgba(0,212,170,0.3); padding-right: 1.5rem; }
+        .stat:first-child { border-right: none; padding-right: 0; }
+        .stat-n { font-size: 2rem; font-weight: 900; color: var(--accent); }
+        .stat-l { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+
+        /* Product Cards Visual */
+        .hero-visual { position: relative; }
+        .product-grid-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .pv-card {
+            background: #141414; border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px; padding: 1.5rem; transition: all 0.3s; position: relative; overflow: hidden;
+        }
+        .pv-card:hover { border-color: var(--accent); transform: scale(1.03); }
+        .pv-card.accent-border { border-color: rgba(0,212,170,0.3); }
+        .pv-emoji { font-size: 3rem; margin-bottom: 0.8rem; }
+        .pv-name { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .pv-price { font-size: 0.8rem; color: var(--accent); font-weight: 700; }
+        .pv-badge {
+            position: absolute; top: 10px; left: 10px;
+            background: var(--accent2); color: white; font-size: 0.65rem; font-weight: 800;
+            padding: 0.2rem 0.5rem; border-radius: 4px;
+        }
+        .corner-glow {
+            position: absolute; bottom: 0; right: 0; width: 80px; height: 80px;
+            background: radial-gradient(circle at 100% 100%, rgba(0,212,170,0.15), transparent);
+            border-radius: 16px 0 0 0;
+        }
+
+        /* PRODUCTS SECTION */
+        #products { padding: 100px 0; background: #0d0d0d; }
+        .sec-wrap { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .sec-hd { text-align: center; margin-bottom: 3.5rem; }
+        .sec-tag { display: inline-block; background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.25); color: var(--accent); padding: 0.35rem 1rem; border-radius: 6px; font-size: 0.82rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.8rem; }
+        .sec-title { font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 900; margin-bottom: 0.8rem; }
+        .sec-sub { color: rgba(255,255,255,0.5); font-size: 0.95rem; max-width: 500px; margin: 0 auto; line-height: 1.7; }
+        .sport-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+        .sport-card {
+            background: #141414; border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 18px; overflow: hidden; transition: all 0.35s;
+        }
+        .sport-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,212,170,0.15); }
+        .sport-img {
+            height: 200px; display: flex; align-items: center; justify-content: center;
+            font-size: 5rem; position: relative;
+        }
+        .sport-img.dark1 { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+        .sport-img.dark2 { background: linear-gradient(135deg, #0f3460, #533483); }
+        .sport-img.dark3 { background: linear-gradient(135deg, #1a0a0a, #3d0000); }
+        .sport-sale { position: absolute; top: 12px; right: 12px; background: var(--accent2); color: white; font-size: 0.72rem; font-weight: 800; padding: 0.25rem 0.6rem; border-radius: 5px; }
+        .sport-body { padding: 1.3rem; }
+        .sport-cat { font-size: 0.72rem; color: var(--accent); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.4rem; }
+        .sport-name { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .sport-desc { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 1rem; }
+        .sport-footer { display: flex; align-items: center; justify-content: space-between; }
+        .price-wrap .old { font-size: 0.78rem; color: rgba(255,255,255,0.3); text-decoration: line-through; }
+        .price-wrap .new { font-size: 1.2rem; font-weight: 900; color: var(--accent); }
+        .buy-btn {
+            background: linear-gradient(135deg, var(--accent), #00a882);
+            color: #0a0a0a; border: none; border-radius: 8px; padding: 0.6rem 1.2rem;
+            font-weight: 800; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; font-family: var(--font);
+        }
+        .buy-btn:hover { transform: scale(1.05); box-shadow: 0 6px 15px rgba(0,212,170,0.4); }
+
+        /* FEATURES */
+        #features { padding: 90px 0; background: #0a0a0a; }
+        .feat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
+        .feat-card {
+            background: #141414; border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px; padding: 1.8rem; text-align: center; transition: all 0.3s;
+        }
+        .feat-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .feat-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+        .feat-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .feat-text { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+        /* TIMER */
+        #timer-section { padding: 60px 0; background: linear-gradient(135deg, #0f2a20, #0a1f16); }
+        .timer-wrap { max-width: 800px; margin: 0 auto; text-align: center; padding: 0 2rem; }
+        .timer-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.8rem; }
+        .timer-sub { color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
+        .countdown { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .cd-box { background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.3); border-radius: 12px; padding: 1rem 1.5rem; min-width: 80px; }
+        .cd-num { font-size: 2.2rem; font-weight: 900; color: var(--accent); display: block; }
+        .cd-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.5); }
+
+        /* CTA */
+        #cta-section { padding: 100px 0; background: #0d0d0d; text-align: center; }
+        .cta-box { max-width: 700px; margin: 0 auto; padding: 0 2rem; }
+        .cta-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+        .cta-title { font-size: clamp(1.8rem,3vw,2.6rem); font-weight: 900; margin-bottom: 1rem; }
+        .cta-title span { color: var(--accent); }
+        .cta-desc { color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.7; margin-bottom: 2.5rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        footer { background: #070707; border-top: 1px solid rgba(255,255,255,0.05); padding: 2rem; text-align: center; color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+        footer strong { color: var(--accent); }
+
+        @media(max-width:900px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-cta { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-line { margin: 0 auto 1.5rem; }
+            .hero-visual { display: none; }
+            .sport-grid { grid-template-columns: repeat(2,1fr); }
+            .feat-grid { grid-template-columns: repeat(2,1fr); }
+        }
+        @media(max-width:600px) {
+            .sport-grid { grid-template-columns: 1fr; }
+            .feat-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="../index.html#portfolio" class="back-link">
+            <i class="fas fa-arrow-right"></i> العودة
+        </a>
+        <div class="nav-logo">PRO<span>FIT</span> SPORT</div>
+        <a href="#cta-section" class="nav-cta">🛒 تسوّق الآن</a>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <!-- BG Decoration -->
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%, rgba(0,212,170,0.08) 0%, transparent 60%);pointer-events:none"></div>
+        <div style="position:absolute;top:0;right:0;width:1px;height:100%;background:linear-gradient(to bottom, transparent, rgba(0,212,170,0.3), transparent)"></div>
+
+        <div class="hero-grid">
+            <div>
+                <div class="hero-tag">⚡ Performance Wear Collection 2025</div>
+                <div class="hero-line"></div>
+                <h1 class="hero-title">
+                    ارتدِ <span class="neon">القوة</span><br>
+                    حقق <span class="red">الانتصار</span>
+                </h1>
+                <p class="hero-desc">
+                    ملابس رياضية احترافية مصممة للأداء العالي. تقنيات متطورة لتبريد الجسم، مرونة فائقة وراحة تدوم طول التدريب.
+                </p>
+                <div class="hero-cta">
+                    <a href="#products" class="btn-neon"><i class="fas fa-bolt"></i> تسوّق المجموعة</a>
+                    <a href="#features" class="btn-border"><i class="fas fa-tshirt"></i> عرّف بتقنياتنا</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-n">+15K</div>
+                        <div class="stat-l">رياضي يثق بنا</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-n">48h</div>
+                        <div class="stat-l">توصيل سريع</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-n">4.8★</div>
+                        <div class="stat-l">تقييم العملاء</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="product-grid-visual">
+                    <div class="pv-card accent-border" style="padding:0">
+                        <span class="pv-badge">BEST</span>
+                        <img src="../images/products/sportswear.jpg" alt="Pro Training Set" style="width:100%;height:130px;object-fit:cover;display:block">
+                        <div style="padding:0.8rem"><div class="pv-name">Pro Training Set</div><div class="pv-price">4.390 دج</div></div>
+                        <div class="corner-glow"></div>
+                    </div>
+                    <div class="pv-card" style="padding:0">
+                        <span class="pv-badge">NEW</span>
+                        <img src="../images/products/sneakers.jpg" alt="Sport Sneakers X" style="width:100%;height:130px;object-fit:cover;display:block">
+                        <div style="padding:0.8rem"><div class="pv-name">Sport Sneakers X</div><div class="pv-price">7.290 دج</div></div>
+                        <div class="corner-glow"></div>
+                    </div>
+                    <div class="pv-card" style="padding:0">
+                        <span class="pv-badge">HOT</span>
+                        <img src="../images/products/leggings.jpg" alt="Flex Legging Pro" style="width:100%;height:130px;object-fit:cover;display:block">
+                        <div style="padding:0.8rem"><div class="pv-name">Flex Legging Pro</div><div class="pv-price">3.290 دج</div></div>
+                        <div class="corner-glow"></div>
+                    </div>
+                    <div class="pv-card accent-border" style="padding:0">
+                        <span class="pv-badge">-40%</span>
+                        <img src="../images/products/sneakers.jpg" alt="Sport Cap Elite" style="width:100%;height:130px;object-fit:cover;display:block">
+                        <div style="padding:0.8rem"><div class="pv-name">Sport Cap Elite</div><div class="pv-price">1.290 دج</div></div>
+                        <div class="corner-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+        <div class="sec-wrap">
+            <div class="sec-hd">
+                <div class="sec-tag">⚡ المجموعة الجديدة</div>
+                <h2 class="sec-title">Performance Collection 2025</h2>
+                <p class="sec-sub">مصممة للرياضيين الجادين الذين يرفضون التنازل عن الأداء أو الأناقة</p>
+            </div>
+            <div class="sport-grid">
+                <div class="sport-card">
+                    <div class="sport-img dark1" style="height:240px;overflow:hidden;display:block;position:relative">
+                        <span class="sport-sale">-35%</span>
+                        <img src="../images/products/sportswear.jpg" alt="Pro Training Set" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                    </div>
+                    <div class="sport-body">
+                        <div class="sport-cat">Training Wear</div>
+                        <h3 class="sport-name">Pro Training Set</h3>
+                        <p class="sport-desc">طقم تدريب متكامل بتقنية DryFit لامتصاص العرق وتبريد الجسم أثناء التمرين الشديد</p>
+                        <div class="sport-footer">
+                            <div class="price-wrap">
+                                <div class="old">6.800 دج</div>
+                                <div class="new">4.390 دج</div>
+                            </div>
+                            <button class="buy-btn">أضف للسلة</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="sport-card">
+                    <div class="sport-img dark2" style="height:240px;overflow:hidden;display:block;position:relative">
+                        <span class="sport-sale">جديد</span>
+                        <img src="../images/products/sneakers.jpg" alt="Sport Runner Pro X" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                    </div>
+                    <div class="sport-body">
+                        <div class="sport-cat">Footwear</div>
+                        <h3 class="sport-name">Sport Runner Pro X</h3>
+                        <p class="sport-desc">حذاء ركض احترافي بتقنية Air Cushion لتوزيع الضغط وتوفير أقصى راحة</p>
+                        <div class="sport-footer">
+                            <div class="price-wrap">
+                                <div class="old">10.700 دج</div>
+                                <div class="new">7.290 دج</div>
+                            </div>
+                            <button class="buy-btn">أضف للسلة</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="sport-card">
+                    <div class="sport-img dark3" style="height:240px;overflow:hidden;display:block;position:relative">
+                        <span class="sport-sale">-40%</span>
+                        <img src="../images/products/leggings.jpg" alt="Flex Compression Legging" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                    </div>
+                    <div class="sport-body">
+                        <div class="sport-cat">Compression Wear</div>
+                        <h3 class="sport-name">Flex Compression Legging</h3>
+                        <p class="sport-desc">لغنز ضغطي بمرونة 360° لتحسين الدورة الدموية وتسريع التعافي بعد التمرين</p>
+                        <div class="sport-footer">
+                            <div class="price-wrap">
+                                <div class="old">5.600 دج</div>
+                                <div class="new">3.290 دج</div>
+                            </div>
+                            <button class="buy-btn">أضف للسلة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN TIMER -->
+    <section id="timer-section">
+        <div class="timer-wrap">
+            <h2 class="timer-title">🔥 عرض محدود — ينتهي قريباً!</h2>
+            <p class="timer-sub">احصل على خصم 40% على جميع المنتجات قبل انتهاء العرض</p>
+            <div class="countdown">
+                <div class="cd-box"><span class="cd-num" id="hours">12</span><span class="cd-lbl">ساعة</span></div>
+                <div class="cd-box"><span class="cd-num" id="minutes">45</span><span class="cd-lbl">دقيقة</span></div>
+                <div class="cd-box"><span class="cd-num" id="seconds">30</span><span class="cd-lbl">ثانية</span></div>
+            </div>
+            <a href="#products" class="btn-neon" style="display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2.5rem;border-radius:8px;font-size:1rem">
+                <i class="fas fa-shopping-cart"></i> استفد من العرض الآن
+            </a>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+        <div class="sec-wrap">
+            <div class="sec-hd">
+                <div class="sec-tag">🔬 تقنياتنا</div>
+                <h2 class="sec-title">لماذا ProFit Sport؟</h2>
+                <p class="sec-sub">تقنيات متطورة مصممة لتحقيق أعلى مستويات الأداء الرياضي</p>
+            </div>
+            <div class="feat-grid">
+                <div class="feat-card">
+                    <div class="feat-icon">💧</div>
+                    <h3 class="feat-title">DryFit Tech</h3>
+                    <p class="feat-text">تقنية امتصاص العرق السريع للحفاظ على جفاف جسمك طول التمرين</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">🌡️</div>
+                    <h3 class="feat-title">CoolMax System</h3>
+                    <p class="feat-text">نظام تبريد متطور يخفض درجة حرارة الجسم 3 درجات أثناء التمرين</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">🔄</div>
+                    <h3 class="feat-title">Flex 360°</h3>
+                    <p class="feat-text">مرونة كاملة في جميع الاتجاهات تتيح حرية حركة لا محدودة</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">♻️</div>
+                    <h3 class="feat-title">Eco Premium</h3>
+                    <p class="feat-text">مواد صديقة للبيئة بجودة عالمية — أداء رياضي مع ضمير نظيف</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta-section">
+        <div class="cta-box">
+            <div class="cta-icon">⚡</div>
+            <h2 class="cta-title">جاهز تبدأ <span>رحلتك الرياضية؟</span></h2>
+            <p class="cta-desc">انضم إلى أكثر من 15,000 رياضي يثقون في ProFit Sport. اطلب الآن واستلم خلال 48 ساعة مع ضمان الاسترجاع المجاني</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/213697608838?text=أريد%20الطلب%20من%20ProFit%20Sport" target="_blank" class="btn-neon">
+                    <i class="fab fa-whatsapp"></i> اطلب عبر واتساب
+                </a>
+                <a href="#products" class="btn-border">
+                    <i class="fas fa-tshirt"></i> تسوّق الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>صُممت هذه الصفحة بواسطة <strong>Digital Boost</strong> | وكالة التسويق الرقمي</p>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/213697608838?text=أريد%20الطلب%20من%20ProFit%20Sport" target="_blank"
+       style="position:fixed;bottom:1.5rem;left:1.5rem;width:55px;height:55px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,0.5);z-index:999">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Countdown Timer
+        function startCountdown(h, m, s) {
+            let total = h * 3600 + m * 60 + s;
+            setInterval(() => {
+                if (total <= 0) { total = 12 * 3600; return; }
+                total--;
+                const hours = Math.floor(total / 3600);
+                const mins = Math.floor((total % 3600) / 60);
+                const secs = total % 60;
+                document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+                document.getElementById('minutes').textContent = String(mins).padStart(2,'0');
+                document.getElementById('seconds').textContent = String(secs).padStart(2,'0');
+            }, 1000);
+        }
+        startCountdown(11, 47, 33);
+    </script>
+</body>
+</html>

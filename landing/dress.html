@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelyn Elegance | فستان الأناقة الراقية</title>
+    <meta name="description" content="فستان طويل أنيق من الشبك المتألق - إطلالة ساحرة لكل مناسبة. تصميم راقٍ بأسعار مميزة للتوصيل في الجزائر">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --wine: #6b1a2a;
+            --wine-light: #9b2d42;
+            --wine-dark: #4a0f1c;
+            --gold: #c9a227;
+            --gold-light: #e8c547;
+            --cream: #fdf8f2;
+            --dark: #1a0a10;
+            --white: #ffffff;
+            --blush: #f7e8ed;
+            --font: 'Cairo', sans-serif;
+            --serif: 'Playfair Display', serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font); background: var(--cream); color: var(--dark); overflow-x: hidden; direction: rtl; }
+
+        /* ===== PRELOADER ===== */
+        #preloader {
+            position: fixed; inset: 0; background: var(--dark); z-index: 9999;
+            display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        #preloader.hidden { opacity: 0; visibility: hidden; }
+        .preloader-logo { font-size: 2rem; color: var(--gold); font-family: var(--serif); letter-spacing: 3px; animation: fadePulse 1.5s infinite; }
+        .preloader-dots { display: flex; gap: 0.5rem; }
+        .preloader-dots span { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; animation: dotBounce 1.4s infinite ease-in-out; }
+        .preloader-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .preloader-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes dotBounce { 0%,80%,100%{transform:scale(0.6);opacity:0.4} 40%{transform:scale(1.2);opacity:1} }
+        @keyframes fadePulse { 0%,100%{opacity:0.7} 50%{opacity:1} }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(26,10,16,0.97); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201,162,39,0.2);
+            padding: 0.9rem 2rem; display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 0.8rem; }
+        .nav-logo-icon {
+            width: 38px; height: 38px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+        }
+        .nav-brand h1 { font-size: 1.2rem; font-weight: 700; color: white; }
+        .nav-brand h1 span { color: var(--gold); }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold), #b8901e);
+            color: var(--dark); padding: 0.6rem 1.4rem; border-radius: 50px;
+            font-weight: 800; font-size: 0.88rem; text-decoration: none; transition: all 0.3s;
+        }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201,162,39,0.4); }
+        .back-link {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: var(--gold); font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: gap 0.3s;
+        }
+        .back-link:hover { gap: 0.8rem; }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh; padding-top: 75px;
+            background: linear-gradient(135deg, #1a0a10 0%, #2d1020 40%, #1a0a10 100%);
+            display: flex; align-items: center; position: relative; overflow: hidden;
+        }
+        .hero-particles {
+            position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+        }
+        .particle {
+            position: absolute; width: 2px; height: 2px; background: var(--gold);
+            border-radius: 50%; opacity: 0; animation: sparkle var(--dur) infinite;
+        }
+        @keyframes sparkle {
+            0% { opacity: 0; transform: translateY(0) scale(0); }
+            30% { opacity: 1; transform: translateY(-30px) scale(1.5); }
+            100% { opacity: 0; transform: translateY(-100px) scale(0); }
+        }
+        .hero-deco {
+            position: absolute; border-radius: 50%; pointer-events: none;
+        }
+        .hero-deco-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,162,39,0.08), transparent); top: -200px; right: -200px; }
+        .hero-deco-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(107,26,42,0.2), transparent); bottom: -100px; left: -100px; }
+
+        .hero-container {
+            max-width: 1200px; margin: 0 auto; padding: 3rem 2rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+            align-items: center; position: relative; z-index: 2; width: 100%;
+        }
+
+        /* Left text */
+        .hero-label {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
+            color: var(--gold); padding: 0.4rem 1.2rem; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem;
+        }
+        .hero-label .dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+        .hero-title {
+            font-size: clamp(2rem, 4.5vw, 3.8rem); font-weight: 900;
+            line-height: 1.15; margin-bottom: 1.5rem; color: white;
+        }
+        .hero-title .gold { color: var(--gold); text-shadow: 0 0 30px rgba(201,162,39,0.4); }
+        .hero-title .serif-style { font-family: var(--serif); font-style: italic; }
+
+        .hero-desc {
+            color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.85;
+            margin-bottom: 2rem; max-width: 480px;
+        }
+
+        .hero-price-tag {
+            display: inline-flex; align-items: center; gap: 1.5rem;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(201,162,39,0.2);
+            border-radius: 16px; padding: 1rem 1.5rem; margin-bottom: 2rem;
+        }
+        .price-old { font-size: 1rem; color: rgba(255,255,255,0.35); text-decoration: line-through; }
+        .price-new { font-size: 2rem; font-weight: 900; color: var(--gold); }
+        .price-new span { font-size: 0.9rem; font-weight: 600; }
+        .price-badge {
+            background: #ef4444; color: white; font-size: 0.75rem; font-weight: 800;
+            padding: 0.3rem 0.7rem; border-radius: 50px;
+        }
+
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+        .btn-gold {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: linear-gradient(135deg, var(--gold), #b8901e);
+            color: var(--dark); padding: 1rem 2.2rem; border-radius: 50px;
+            font-weight: 800; font-size: 1rem; text-decoration: none; transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(201,162,39,0.4);
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(201,162,39,0.6); }
+        .btn-outline-gold {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            border: 2px solid rgba(201,162,39,0.5); color: var(--gold);
+            padding: 0.9rem 1.8rem; border-radius: 50px;
+            font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s;
+        }
+        .btn-outline-gold:hover { background: rgba(201,162,39,0.1); border-color: var(--gold); }
+
+        .hero-trust { display: flex; gap: 2rem; }
+        .trust-badge { display: flex; align-items: center; gap: 0.5rem; }
+        .trust-badge i { color: var(--gold); font-size: 0.9rem; }
+        .trust-badge span { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+
+        /* Right: Dress visual */
+        .dress-showcase { position: relative; display: flex; justify-content: center; }
+        .dress-card {
+            width: 340px; background: linear-gradient(135deg, #2d1020, #1a0a10);
+            border: 1px solid rgba(201,162,39,0.2); border-radius: 30px;
+            padding: 2rem; text-align: center; position: relative; overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(201,162,39,0.08);
+        }
+        .dress-card::before {
+            content: ''; position: absolute; top: 0; right: 0;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle at 100% 0%, rgba(201,162,39,0.15), transparent);
+        }
+        .dress-emoji-big {
+            font-size: 7rem; margin-bottom: 1rem; display: block;
+            filter: drop-shadow(0 10px 30px rgba(201,162,39,0.3));
+            animation: float-dress 4s ease-in-out infinite;
+        }
+        @keyframes float-dress { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+        .dress-name { font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 0.3rem; }
+        .dress-sub { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 1.2rem; }
+        .dress-sizes { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1.2rem; flex-wrap: wrap; }
+        .size-btn {
+            width: 36px; height: 36px; border: 1px solid rgba(201,162,39,0.3);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.7);
+            cursor: pointer; transition: all 0.2s;
+        }
+        .size-btn.active, .size-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+        .dress-colors { display: flex; gap: 0.6rem; justify-content: center; margin-bottom: 1.2rem; }
+        .color-dot { width: 24px; height: 24px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .color-dot:hover, .color-dot.active { border-color: var(--gold); transform: scale(1.2); }
+        .dress-card-price { font-size: 1.4rem; font-weight: 900; color: var(--gold); }
+        .dress-card-price small { font-size: 0.8rem; color: rgba(255,255,255,0.4); font-weight: 400; text-decoration: line-through; margin-right: 0.5rem; }
+
+        /* Floating badges */
+        .float-badge {
+            position: absolute; background: rgba(26,10,16,0.95); border: 1px solid rgba(201,162,39,0.3);
+            border-radius: 12px; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.6rem;
+            backdrop-filter: blur(10px); box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .fb-top { top: -10px; left: -30px; animation: floatBadge 3s ease-in-out infinite; }
+        .fb-bottom { bottom: 30px; right: -30px; animation: floatBadge 3s ease-in-out infinite 1.5s; }
+        @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+        .fb-icon { font-size: 1.3rem; }
+        .fb-text strong { display: block; font-size: 0.78rem; color: white; font-weight: 700; }
+        .fb-text span { font-size: 0.68rem; color: rgba(255,255,255,0.5); }
+
+        /* ===== PRODUCT DETAILS ===== */
+        #details { padding: 100px 0; background: white; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .sec-tag {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(107,26,42,0.08); border: 1px solid rgba(107,26,42,0.15);
+            color: var(--wine); padding: 0.35rem 1rem; border-radius: 50px;
+            font-size: 0.82rem; font-weight: 700; margin-bottom: 0.8rem;
+        }
+        .sec-title { font-size: clamp(1.7rem,3vw,2.5rem); font-weight: 900; color: var(--dark); margin-bottom: 0.8rem; }
+        .sec-title .highlight { color: var(--wine); }
+        .sec-sub { color: #7a5a68; font-size: 1rem; max-width: 550px; margin: 0 auto; line-height: 1.7; }
+
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .dress-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .gallery-main {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #f7e8ed, #fdf0f4);
+            border-radius: 24px; height: 380px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 9rem; position: relative; overflow: hidden;
+            border: 1px solid rgba(107,26,42,0.08);
+        }
+        .gallery-main::before {
+            content: '✨'; position: absolute; top: 15px; right: 20px;
+            font-size: 1.5rem; animation: twinkle 2s infinite;
+        }
+        @keyframes twinkle { 0%,100%{opacity:0.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.2)} }
+        .gallery-thumb {
+            background: linear-gradient(135deg, #fdf0f4, #f7e8ed);
+            border-radius: 16px; height: 160px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 4rem; cursor: pointer; transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .gallery-thumb:hover, .gallery-thumb.active { border-color: var(--wine); transform: scale(1.03); }
+        .gallery-badge {
+            position: absolute; top: 15px; left: 15px;
+            background: linear-gradient(135deg, var(--gold), #b8901e);
+            color: var(--dark); font-size: 0.78rem; font-weight: 800;
+            padding: 0.4rem 0.9rem; border-radius: 50px;
+        }
+
+        /* Product info */
+        .product-info h2 { font-size: 1.9rem; font-weight: 900; color: var(--dark); margin-bottom: 0.5rem; font-family: var(--serif); }
+        .product-subtitle { color: #9b7a85; font-size: 1rem; margin-bottom: 1.5rem; }
+        .product-rating { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(107,26,42,0.08); }
+        .stars { color: var(--gold); font-size: 1rem; }
+        .rating-val { font-size: 0.9rem; font-weight: 700; color: var(--dark); }
+        .rating-count { font-size: 0.85rem; color: #9b7a85; }
+
+        .info-price { margin-bottom: 1.5rem; }
+        .info-price .p-old { font-size: 1rem; color: #bbb; text-decoration: line-through; margin-bottom: 0.2rem; }
+        .info-price .p-new { font-size: 2.2rem; font-weight: 900; color: var(--wine); }
+        .info-price .p-new small { font-size: 1rem; color: #9b7a85; font-weight: 400; }
+        .discount-pct { display: inline-block; background: #ef4444; color: white; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 6px; margin-right: 0.5rem; }
+
+        .option-label { font-size: 0.88rem; font-weight: 700; color: var(--dark); margin-bottom: 0.7rem; }
+        .sizes-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .sz-btn {
+            padding: 0.5rem 1rem; border: 2px solid rgba(107,26,42,0.15);
+            border-radius: 10px; font-size: 0.85rem; font-weight: 600; color: #7a5a68;
+            cursor: pointer; transition: all 0.2s; background: white; font-family: var(--font);
+        }
+        .sz-btn:hover, .sz-btn.active { background: var(--wine); border-color: var(--wine); color: white; }
+
+        .colors-row { display: flex; gap: 0.8rem; margin-bottom: 1.5rem; }
+        .clr-btn {
+            width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+            border: 3px solid transparent; transition: all 0.2s;
+        }
+        .clr-btn:hover, .clr-btn.active { border-color: var(--dark); transform: scale(1.15); }
+
+        .product-features { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem; }
+        .feat-row { display: flex; align-items: center; gap: 0.8rem; }
+        .feat-row i { color: var(--wine); font-size: 0.9rem; width: 18px; }
+        .feat-row span { font-size: 0.88rem; color: #5a3d4a; }
+
+        .product-btns { display: flex; gap: 1rem; flex-direction: column; }
+        .btn-main {
+            display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+            background: linear-gradient(135deg, var(--wine), var(--wine-light));
+            color: white; padding: 1.1rem 2rem; border-radius: 14px;
+            font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(107,26,42,0.35); border: none; cursor: pointer; font-family: var(--font);
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(107,26,42,0.45); }
+        .btn-whatsapp {
+            display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+            background: linear-gradient(135deg, #25d366, #128c5e);
+            color: white; padding: 1.1rem 2rem; border-radius: 14px;
+            font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(37,211,102,0.35);
+        }
+        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(37,211,102,0.5); }
+
+        /* ===== BENEFITS ===== */
+        #benefits { padding: 90px 0; background: linear-gradient(135deg, #fdf8f2, #f7e8ed); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3.5rem; }
+        .benefit-card {
+            background: white; border-radius: 20px; padding: 2rem 1.5rem; text-align: center;
+            border: 1px solid rgba(107,26,42,0.06); transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(107,26,42,0.05);
+        }
+        .benefit-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(107,26,42,0.12); }
+        .benefit-icon {
+            width: 65px; height: 65px; border-radius: 18px; margin: 0 auto 1.2rem;
+            display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+        }
+        .bi-wine { background: rgba(107,26,42,0.08); color: var(--wine); }
+        .bi-gold { background: rgba(201,162,39,0.1); color: var(--gold); }
+        .bi-green { background: rgba(34,197,94,0.1); color: #16a34a; }
+        .bi-blue { background: rgba(59,130,246,0.1); color: #3b82f6; }
+        .benefit-card h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; }
+        .benefit-card p { font-size: 0.84rem; color: #7a5a68; line-height: 1.65; }
+
+        /* ===== LOOK GALLERY ===== */
+        #looks { padding: 90px 0; background: white; }
+        .looks-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3.5rem; }
+        .look-card {
+            border-radius: 20px; overflow: hidden; position: relative;
+            aspect-ratio: 3/4; cursor: pointer; transition: all 0.35s;
+        }
+        .look-card:hover { transform: scale(1.02); box-shadow: 0 20px 50px rgba(107,26,42,0.2); }
+        .look-bg {
+            width: 100%; height: 100%; position: relative; overflow: hidden;
+        }
+        .look-bg img { width:100%; height:100%; object-fit:cover; object-position:top; transition: transform 0.5s; }
+        .look-card:hover .look-bg img { transform: scale(1.07); }
+        .look-bg.l1 { background: #1a0a10; }
+        .look-bg.l2 { background: #0a1020; }
+        .look-bg.l3 { background: #0a1a0a; }
+        .look-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(26,10,16,0.95), transparent);
+            padding: 1.5rem; color: white;
+        }
+        .look-overlay h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .look-overlay p { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+        .look-badge {
+            position: absolute; top: 12px; right: 12px;
+            background: rgba(201,162,39,0.9); color: var(--dark);
+            font-size: 0.72rem; font-weight: 800; padding: 0.25rem 0.7rem; border-radius: 50px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        #testimonials { padding: 90px 0; background: var(--cream); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3.5rem; }
+        .review-card {
+            background: white; border-radius: 20px; padding: 1.8rem;
+            border: 1px solid rgba(107,26,42,0.07); transition: all 0.3s;
+        }
+        .review-card:hover { box-shadow: 0 12px 30px rgba(107,26,42,0.1); transform: translateY(-3px); }
+        .review-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .reviewer-avatar {
+            width: 46px; height: 46px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--wine), var(--wine-dark));
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 1.1rem; flex-shrink: 0;
+        }
+        .reviewer-name { font-weight: 700; font-size: 0.95rem; color: var(--dark); }
+        .reviewer-loc { font-size: 0.75rem; color: #9b7a85; }
+        .review-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.8rem; }
+        .review-text { font-size: 0.88rem; color: #5a3d4a; line-height: 1.72; font-style: italic; }
+        .review-text::before { content: '"'; font-size: 2rem; color: var(--wine); opacity: 0.25; line-height: 0; vertical-align: -0.6rem; margin-left: 0.3rem; }
+        .review-verified { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.75rem; color: #16a34a; font-weight: 600; }
+
+        /* ===== ORDER CTA ===== */
+        #order {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--wine-dark) 0%, var(--wine) 50%, var(--wine-light) 100%);
+            text-align: center; position: relative; overflow: hidden;
+        }
+        #order::before {
+            content: '👗'; font-size: 20rem; position: absolute;
+            top: 50%; left: 50%; transform: translate(-50%,-50%);
+            opacity: 0.04; pointer-events: none;
+        }
+        .order-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; padding: 0 2rem; }
+        .order-badge {
+            display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+            color: white; padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.82rem; font-weight: 700; margin-bottom: 1.5rem;
+        }
+        .order-title { font-size: clamp(2rem,4vw,3rem); font-weight: 900; color: white; margin-bottom: 1rem; }
+        .order-title .gold-text { color: var(--gold-light); }
+        .order-desc { color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.75; margin-bottom: 3rem; }
+        .order-steps { display: flex; gap: 2rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
+        .order-step { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+        .step-circle { width: 50px; height: 50px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .order-step span { font-size: 0.78rem; color: rgba(255,255,255,0.8); text-align: center; max-width: 80px; line-height: 1.4; }
+        .order-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-white {
+            display: inline-flex; align-items: center; gap: 0.7rem;
+            background: white; color: var(--wine); padding: 1.1rem 2.2rem;
+            border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+        }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(0,0,0,0.3); }
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 0.7rem;
+            border: 2px solid rgba(255,255,255,0.5); color: white;
+            padding: 1rem 2rem; border-radius: 50px;
+            font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.15); border-color: white; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark); color: rgba(255,255,255,0.5);
+            padding: 2rem; text-align: center; font-size: 0.85rem;
+        }
+        footer strong { color: var(--gold); }
+
+        /* ===== SIZE GUIDE ===== */
+        #size-guide { padding: 80px 0; background: white; }
+        .size-table { width: 100%; border-collapse: collapse; margin-top: 2rem; border-radius: 12px; overflow: hidden; }
+        .size-table th { background: var(--wine); color: white; padding: 0.9rem 1.2rem; font-size: 0.88rem; font-weight: 700; text-align: center; }
+        .size-table td { padding: 0.8rem 1.2rem; border-bottom: 1px solid rgba(107,26,42,0.06); font-size: 0.85rem; color: #5a3d4a; text-align: center; }
+        .size-table tr:nth-child(even) td { background: rgba(107,26,42,0.02); }
+        .size-table tr:last-child td { border-bottom: none; }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:900px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; padding-top: 2rem; }
+            .hero-btns { justify-content: center; }
+            .hero-trust { justify-content: center; }
+            .dress-showcase { display: none; }
+            .details-grid { grid-template-columns: 1fr; }
+            .dress-gallery { grid-template-columns: 1fr 1fr; }
+            .benefits-grid { grid-template-columns: repeat(2,1fr); }
+            .looks-grid { grid-template-columns: repeat(2,1fr); }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .order-steps { gap: 1.2rem; }
+        }
+        @media(max-width:600px) {
+            .benefits-grid { grid-template-columns: 1fr; }
+            .looks-grid { grid-template-columns: 1fr; }
+            .dress-gallery { grid-template-columns: 1fr; }
+        }
+
+        /* Scroll animation */
+        [data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+        [data-reveal].visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="preloader-logo">Modelyn ✨</div>
+        <div class="preloader-dots">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="../index.html#portfolio" class="back-link">
+            <i class="fas fa-arrow-right"></i> العودة للمحفظة
+        </a>
+        <div class="nav-brand">
+            <div class="nav-logo-icon">👗</div>
+            <h1>Modelyn <span>Elegance</span></h1>
+        </div>
+        <div class="nav-right">
+            <a href="#order" class="nav-cta"><i class="fas fa-shopping-bag"></i> اطلبي الآن</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-deco hero-deco-1"></div>
+        <div class="hero-deco hero-deco-2"></div>
+        <div class="hero-container">
+            <!-- Text -->
+            <div class="hero-text">
+                <div class="hero-label">
+                    <div class="dot"></div>
+                    تصميم حصري 2025 | جديد في المجموعة
+                </div>
+                <h1 class="hero-title">
+                    فستان <span class="gold serif-style">الأناقة</span><br>
+                    الراقية<br>
+                    <span style="font-size:0.75em;color:rgba(255,255,255,0.8)">يجعلكِ ملكةً في كل مناسبة</span>
+                </h1>
+                <p class="hero-desc">
+                    فستان طويل فاخر من الشبك المتألق بأكمام شالٍ عصرية. تصميم عمود أنيق يُجسّد أنوثتكِ ويُعلي من إطلالتكِ في حفلات الزفاف، السهرات والمناسبات الرسمية.
+                </p>
+                <div class="hero-price-tag">
+                    <div>
+                        <div class="price-old">5.900 دج</div>
+                        <div class="price-new">3.900 <span>دج</span></div>
+                    </div>
+                    <div class="price-badge">-34% خصم</div>
+                </div>
+                <div class="hero-btns">
+                    <a href="https://wa.me/213697608838?text=أريد%20الطلب%20فستان%20Modelyn%20Elegance" target="_blank" class="btn-gold">
+                        <i class="fab fa-whatsapp"></i> اطلبي عبر واتساب
+                    </a>
+                    <a href="#details" class="btn-outline-gold">
+                        <i class="fas fa-eye"></i> عرضي التفاصيل
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-badge"><i class="fas fa-truck"></i><span>توصيل لكل الجزائر</span></div>
+                    <div class="trust-badge"><i class="fas fa-undo"></i><span>إرجاع مجاني 7 أيام</span></div>
+                    <div class="trust-badge"><i class="fas fa-star"></i><span>تقييم 4.9/5</span></div>
+                </div>
+            </div>
+
+            <!-- Dress Card -->
+            <div class="dress-showcase">
+                <div class="float-badge fb-top">
+                    <div class="fb-icon">⭐</div>
+                    <div class="fb-text"><strong>تقييم 4.9/5</strong><span>+850 عميلة راضية</span></div>
+                </div>
+                <div class="dress-card">
+                    <span class="dress-emoji-big">👗</span>
+                    <div class="dress-name">Modelyn Elegance Dress</div>
+                    <div class="dress-sub">شبك متألق | أكمام شال | قصة عمود</div>
+                    <div class="dress-sizes">
+                        <div class="size-btn">XS</div>
+                        <div class="size-btn active">S</div>
+                        <div class="size-btn">M</div>
+                        <div class="size-btn">L</div>
+                        <div class="size-btn">XL</div>
+                    </div>
+                    <div class="dress-colors">
+                        <div class="color-dot active" style="background:#4a0f1c" title="عنابي"></div>
+                        <div class="color-dot" style="background:#1a1a2e" title="أزرق داكن"></div>
+                        <div class="color-dot" style="background:#0a2a0a" title="أخضر زمردي"></div>
+                        <div class="color-dot" style="background:#2a1a00" title="بني ذهبي"></div>
+                        <div class="color-dot" style="background:#1a1a1a" title="أسود"></div>
+                    </div>
+                    <div class="dress-card-price"><small>5.900 دج</small> 3.900 دج</div>
+                </div>
+                <div class="float-badge fb-bottom">
+                    <div class="fb-icon">🚚</div>
+                    <div class="fb-text"><strong>توصيل سريع</strong><span>خلال 24-48 ساعة</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT DETAILS -->
+    <section id="details" style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <div class="sec-tag"><i class="fas fa-gem"></i> تفاصيل المنتج</div>
+                <h2 class="sec-title">كل ما تحتاجين معرفته عن <span class="highlight">الفستان</span></h2>
+                <p class="sec-sub">تصميم استثنائي يجمع الأناقة الكلاسيكية بلمسات العصر الحديث</p>
+            </div>
+            <div class="details-grid">
+                <!-- Gallery -->
+                <div class="dress-gallery" data-reveal>
+                    <div class="gallery-main">
+                        <div class="gallery-badge">✨ الأكثر طلباً</div>
+                        <img src="../images/products/dress.jpg" alt="Modelyn Elegance Dress" style="width:100%;height:100%;object-fit:cover;object-position:top" loading="lazy">
+                    </div>
+                    <div class="gallery-thumb active" style="overflow:hidden;padding:0">
+                        <img src="../images/products/dress.jpg" alt="عرض 1" style="width:100%;height:100%;object-fit:cover;object-position:top" loading="lazy">
+                    </div>
+                    <div class="gallery-thumb" style="overflow:hidden;padding:0">
+                        <img src="../images/products/dress2.jpg" alt="عرض 2" style="width:100%;height:100%;object-fit:cover;object-position:top" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="product-info" data-reveal>
+                    <h2>Modelyn Elegant Mesh Dress</h2>
+                    <div class="product-subtitle">فستان طويل بقصة عمود — أكمام شال — شبك متألق</div>
+
+                    <div class="product-rating">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <span class="rating-val">4.9</span>
+                        <span class="rating-count">(850+ تقييم)</span>
+                    </div>
+
+                    <div class="info-price">
+                        <div class="p-old">5.900 دج</div>
+                        <div class="p-new">
+                            <span class="discount-pct">-34%</span>
+                            3.900 <small>دج</small>
+                        </div>
+                    </div>
+
+                    <div class="option-label">المقاس:</div>
+                    <div class="sizes-row">
+                        <button class="sz-btn">XS</button>
+                        <button class="sz-btn active">S</button>
+                        <button class="sz-btn">M</button>
+                        <button class="sz-btn">L</button>
+                        <button class="sz-btn">XL</button>
+                        <button class="sz-btn">XXL</button>
+                    </div>
+
+                    <div class="option-label">اللون:</div>
+                    <div class="colors-row">
+                        <div class="clr-btn active" style="background:#4a0f1c" title="عنابي"></div>
+                        <div class="clr-btn" style="background:#1a1a2e" title="أزرق داكن"></div>
+                        <div class="clr-btn" style="background:#0a2a0a" title="أخضر زمردي"></div>
+                        <div class="clr-btn" style="background:#2a1a00" title="بني ذهبي"></div>
+                        <div class="clr-btn" style="background:#1a1a1a" title="أسود"></div>
+                    </div>
+
+                    <div class="product-features">
+                        <div class="feat-row"><i class="fas fa-check-circle"></i><span>قماش شبك متألق عالي الجودة</span></div>
+                        <div class="feat-row"><i class="fas fa-check-circle"></i><span>قصة عمود تُجسّد الأنوثة</span></div>
+                        <div class="feat-row"><i class="fas fa-check-circle"></i><span>أكمام شال عصرية مميزة</span></div>
+                        <div class="feat-row"><i class="fas fa-check-circle"></i><span>مناسبة للحفلات والسهرات والزفاف</span></div>
+                        <div class="feat-row"><i class="fas fa-check-circle"></i><span>متاح بـ 5 ألوان مختلفة</span></div>
+                        <div class="feat-row"><i class="fas fa-check-circle"></i><span>توصيل لجميع ولايات الجزائر</span></div>
+                    </div>
+
+                    <div class="product-btns">
+                        <a href="https://wa.me/213697608838?text=أريد%20الطلب%20فستان%20Modelyn%20Elegance%20-%20المقاس:%20S" target="_blank" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp" style="font-size:1.3rem"></i>
+                            اطلبي عبر واتساب الآن
+                        </a>
+                        <a href="#order" class="btn-main">
+                            <i class="fas fa-shopping-bag"></i>
+                            احجزي فستانكِ الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section id="benefits">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <div class="sec-tag"><i class="fas fa-heart"></i> مميزاتنا</div>
+                <h2 class="sec-title">لماذا تختارين <span class="highlight">Modelyn؟</span></h2>
+                <p class="sec-sub">نضمن لكِ تجربة تسوق فاخرة من الاختيار حتى الاستلام</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card" data-reveal>
+                    <div class="benefit-icon bi-wine"><i class="fas fa-gem"></i></div>
+                    <h3>جودة فاخرة</h3>
+                    <p>قماش شبك متألق عالي الجودة مصمم ليدوم ويحافظ على شكله بعد كل غسيل</p>
+                </div>
+                <div class="benefit-card" data-reveal>
+                    <div class="benefit-icon bi-green"><i class="fas fa-truck"></i></div>
+                    <h3>توصيل لكل الجزائر</h3>
+                    <p>نوصل لجميع الولايات الـ 58 خلال 24 إلى 48 ساعة مع إمكانية الدفع عند الاستلام</p>
+                </div>
+                <div class="benefit-card" data-reveal>
+                    <div class="benefit-icon bi-gold"><i class="fas fa-undo"></i></div>
+                    <h3>إرجاع مجاني</h3>
+                    <p>غير راضية؟ أرجعي الفستان خلال 7 أيام ونُعيد لكِ المبلغ كاملاً بدون شروط</p>
+                </div>
+                <div class="benefit-card" data-reveal>
+                    <div class="benefit-icon bi-blue"><i class="fas fa-headset"></i></div>
+                    <h3>دعم 24/7</h3>
+                    <p>فريقنا متاح دائماً للإجابة عن أسئلتكِ ومساعدتكِ في اختيار المقاس المناسب</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOOK GALLERY -->
+    <section id="looks">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <div class="sec-tag"><i class="fas fa-camera"></i> إطلالات مختلفة</div>
+                <h2 class="sec-title">الفستان لكل <span class="highlight">المناسبات</span></h2>
+                <p class="sec-sub">إطلالة واحدة بأكثر من مناسبة — تنوع لا حدود له</p>
+            </div>
+            <div class="looks-grid">
+                <div class="look-card" data-reveal>
+                    <div class="look-bg l1">
+                        <img src="../images/products/dress.jpg" alt="فستان زفاف" loading="lazy">
+                        <span class="look-badge">زفاف</span>
+                    </div>
+                    <div class="look-overlay">
+                        <h3>حفلات الزفاف</h3>
+                        <p>إطلالة ملكية تجعلكِ نجمة الحفل</p>
+                    </div>
+                </div>
+                <div class="look-card" data-reveal>
+                    <div class="look-bg l2">
+                        <img src="../images/products/dress2.jpg" alt="فستان سهرة" loading="lazy">
+                        <span class="look-badge">سهرات</span>
+                    </div>
+                    <div class="look-overlay">
+                        <h3>السهرات الراقية</h3>
+                        <p>جاذبية لا تُقاوم في كل حفل</p>
+                    </div>
+                </div>
+                <div class="look-card" data-reveal>
+                    <div class="look-bg l3">
+                        <img src="../images/products/dress.jpg" alt="فستان تخرج" loading="lazy" style="object-position:center">
+                        <span class="look-badge">تخرج</span>
+                    </div>
+                    <div class="look-overlay">
+                        <h3>حفلات التخرج</h3>
+                        <p>احتفلي بنجاحكِ بأجمل إطلالة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIZE GUIDE -->
+    <section id="size-guide">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <div class="sec-tag"><i class="fas fa-ruler"></i> دليل المقاسات</div>
+                <h2 class="sec-title">اختاري <span class="highlight">مقاسكِ</span> الصحيح</h2>
+                <p class="sec-sub">نصيحة: إذا كنتِ بين مقاسين، اختاري الأكبر للراحة المثلى</p>
+            </div>
+            <div data-reveal style="overflow-x:auto">
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>المقاس</th>
+                            <th>محيط الصدر (سم)</th>
+                            <th>محيط الخصر (سم)</th>
+                            <th>محيط الأرداف (سم)</th>
+                            <th>الطول التقريبي</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>XS</strong></td><td>78 - 82</td><td>60 - 64</td><td>84 - 88</td><td>155 - 160 سم</td></tr>
+                        <tr><td><strong>S</strong></td><td>82 - 88</td><td>64 - 68</td><td>88 - 94</td><td>158 - 163 سم</td></tr>
+                        <tr><td><strong>M</strong></td><td>88 - 94</td><td>68 - 74</td><td>94 - 100</td><td>160 - 166 سم</td></tr>
+                        <tr><td><strong>L</strong></td><td>94 - 100</td><td>74 - 80</td><td>100 - 106</td><td>162 - 168 سم</td></tr>
+                        <tr><td><strong>XL</strong></td><td>100 - 108</td><td>80 - 88</td><td>106 - 114</td><td>164 - 170 سم</td></tr>
+                        <tr><td><strong>XXL</strong></td><td>108 - 116</td><td>88 - 96</td><td>114 - 122</td><td>165 - 172 سم</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <div class="sec-tag"><i class="fas fa-heart"></i> آراء العميلات</div>
+                <h2 class="sec-title">ماذا قالت <span class="highlight">عميلاتنا؟</span></h2>
+                <p class="sec-sub">تجارب حقيقية من جزائريات يثقن في Modelyn Elegance</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="review-card" data-reveal>
+                    <div class="review-header">
+                        <div class="reviewer-avatar">ي</div>
+                        <div>
+                            <div class="reviewer-name">يسمينة بوزيد</div>
+                            <div class="reviewer-loc">🇩🇿 الجزائر العاصمة</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">ارتديته في حفل خطوبة صديقتي وكل الناس سألوا عليه! القماش ناعم جداً والقصة تخفي العيوب وتبرز المحاسن. التوصيل وصل في يومين بالضبط. 100% راضية!</p>
+                    <div class="review-verified"><i class="fas fa-check-circle"></i> شراء مُتحقق منه</div>
+                </div>
+                <div class="review-card" data-reveal>
+                    <div class="review-header">
+                        <div class="reviewer-avatar">س</div>
+                        <div>
+                            <div class="reviewer-name">سارة عمراني</div>
+                            <div class="reviewer-loc">🇩🇿 وهران</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">ما توقعتش يكون هكذا جميل! الصور ما تعبرش عن الحقيقة، في اليد أجمل بكثير. لبسته في عرس ابن عمي وصورت معاه كثير. شكراً على الاختيار الرائع!</p>
+                    <div class="review-verified"><i class="fas fa-check-circle"></i> شراء مُتحقق منه</div>
+                </div>
+                <div class="review-card" data-reveal>
+                    <div class="review-header">
+                        <div class="reviewer-avatar">ن</div>
+                        <div>
+                            <div class="reviewer-name">نور الهدى كريم</div>
+                            <div class="reviewer-loc">🇩🇿 قسنطينة</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">طلبت مقاس M وجاء مضبوط كيف تماماً. الأكمام الشال تعطي شكل راقي جداً. دفعت عند الاستلام وما كانتش فيها أي مشكلة. نوصي بيه لكل بنات الجزائر!</p>
+                    <div class="review-verified"><i class="fas fa-check-circle"></i> شراء مُتحقق منه</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER CTA -->
+    <section id="order">
+        <div class="order-content">
+            <div class="order-badge">🚀 متاح الآن | توصيل لكل الجزائر</div>
+            <h2 class="order-title">
+                اطلبي فستانكِ<br>
+                <span class="gold-text">الآن بـ 3.900 دج</span> فقط!
+            </h2>
+            <p class="order-desc">
+                لا تفوتي هذا العرض الاستثنائي! خصم 34% لفترة محدودة. توصيل لجميع ولايات الجزائر مع دفع عند الاستلام وضمان الإرجاع 7 أيام.
+            </p>
+            <div class="order-steps">
+                <div class="order-step">
+                    <div class="step-circle">💬</div>
+                    <span>تواصلي معنا عبر واتساب</span>
+                </div>
+                <div class="order-step">
+                    <div class="step-circle">📏</div>
+                    <span>أخبرينا بمقاسكِ ولونكِ المفضل</span>
+                </div>
+                <div class="order-step">
+                    <div class="step-circle">🚚</div>
+                    <span>نُرسل لكِ في خلال 48 ساعة</span>
+                </div>
+                <div class="order-step">
+                    <div class="step-circle">💰</div>
+                    <span>ادفعي عند الاستلام</span>
+                </div>
+            </div>
+            <div class="order-btns">
+                <a href="https://wa.me/213697608838?text=أريد%20الطلب%20فستان%20Modelyn%20Elegance%20-%20السعر:%203900%20دج" target="_blank" class="btn-white">
+                    <i class="fab fa-whatsapp" style="font-size:1.3rem;color:#25d366"></i>
+                    اطلبي عبر واتساب
+                </a>
+                <a href="#details" class="btn-ghost">
+                    <i class="fas fa-eye"></i>
+                    عرضي التفاصيل
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>صُممت هذه الصفحة بواسطة <strong>Digital Boost</strong> | وكالة التسويق الرقمي الجزائرية</p>
+        <p style="margin-top:0.5rem;font-size:0.78rem;opacity:0.5">© 2025 Modelyn Elegance. جميع الحقوق محفوظة</p>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/213697608838?text=أريد%20الطلب%20فستان%20Modelyn%20Elegance" target="_blank"
+       style="position:fixed;bottom:1.5rem;left:1.5rem;width:58px;height:58px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:white;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,0.5);z-index:999;animation:waPulse 2s infinite">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Sticky order bar (mobile) -->
+    <div style="position:fixed;bottom:0;right:0;left:0;z-index:998;background:linear-gradient(135deg,#4a0f1c,#6b1a2a);padding:0.8rem 1.5rem;display:none;align-items:center;justify-content:space-between;gap:1rem" id="sticky-bar">
+        <div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.7)">سعر العرض الحصري</div>
+            <div style="font-size:1.3rem;font-weight:900;color:#c9a227">3.900 دج</div>
+        </div>
+        <a href="https://wa.me/213697608838?text=أريد%20الطلب%20فستان%20Modelyn%20Elegance" target="_blank"
+           style="background:linear-gradient(135deg,#c9a227,#b8901e);color:#1a0a10;padding:0.7rem 1.5rem;border-radius:50px;font-weight:800;font-size:0.9rem;text-decoration:none;white-space:nowrap">
+            <i class="fab fa-whatsapp"></i> اطلبي الآن
+        </a>
+    </div>
+
+    <style>
+        @keyframes waPulse {
+            0%,100%{box-shadow:0 6px 20px rgba(37,211,102,0.5)}
+            50%{box-shadow:0 6px 30px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}
+        }
+        @media(max-width:700px) {
+            #sticky-bar { display: flex !important; }
+            body { padding-bottom: 80px; }
+        }
+    </style>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 800);
+        });
+
+        // Sparkle particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.cssText = `
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                --dur: ${2 + Math.random() * 4}s;
+                animation-delay: ${Math.random() * 5}s;
+            `;
+            particlesContainer.appendChild(p);
+        }
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('[data-reveal]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Size selection
+        document.querySelectorAll('.sz-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.sizes-row').querySelectorAll('.sz-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Color selection
+        document.querySelectorAll('.clr-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.colors-row').querySelectorAll('.clr-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Dress card size selection
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.dress-sizes').querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Dress card color selection
+        document.querySelectorAll('.color-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                dot.closest('.dress-colors').querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+            });
+        });
+
+        // Gallery thumbnails
+        document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
